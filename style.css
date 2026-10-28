@@ -1,0 +1,30 @@
+.whole-body{color: white; 
+    font-family: sans-serif; 
+    background-image :url('Waterfall.WEBP'); border-radius: 3%;
+     background-size: cover; 
+     margin-right: 200px;}
+     nav :hover{color: green;}
+.pictur{ position: relative; 
+    width: 400px;
+    object-fit: cover;
+    border: 2px solid #002147;}
+.gallery{display:grid;padding: 15px;}
+h1,h2,h3{font-weight: bold;}
+
+header{border-bottom: 4px solid #002147;}
+
+.table{border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+color: black;
+width: 100%;
+border-collapse: collapse;
+background-color: white;}
+
+.table td{background-color: white;
+color: black;}
+
+.table th{background-color: #0a3d62;
+color: white;}
+
+.table tbody tr :hover{background-color: #e8f6ff;}
