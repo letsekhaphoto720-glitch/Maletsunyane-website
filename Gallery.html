@@ -1,93 +1,15 @@
-<html>
-    <head>
-        <title></title>
-         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-   <body>
-    <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-             <div class="container">
-                <a class="navbar-brand" href="#">Semonkong</a>
-                  <button class="navbar-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#myNav">
-                     <span class="navbar-toggle-icon"></span>
-                     </button>
-                       <div class="collapse navbar-collapse" id="myNav">
-                        <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="index.html">Home</a>
-                <a class="nav-link" href="About.html">About</a>
-                <a class="nav-link" href="services.html">services</a>
-                <a class="nav-link" href="Gallery.html">Gallery</a>
-                <a class="nav-link" href="Contact.html">Contact</a>
-                          </div>
-                         </div>
-             </div>             
-            </nav>
-    </header>
-
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        Welcome to Semonkong - Home of Maletsunyane Falls! <span class="badge bg-primary">New</span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    
-    <main>
-    <div class="Picture">
-        <div class="Gal">
-           
-            <img src="summer.jpg" class="gallery-img" alt="Maletsunaye Falls during summer-time">
-            <div class="caption">Plunging 192 meters into the green heart of the Mountain Kingdom, the mighty Maletsunyane Falls roars <br> to life in a summer storm of mist, spray, and raw Basotho power.</div>
-        </div>
-        
-        <div class="Gal">
-           
-            <img src="winter.jpg" class="gallery-img" alt="Maletsunaye Falls during winter">
-            <div class="caption">The persistent coldness tries to stop the flow but the insubordinate Maletsunaye never comply</div>
-        </div>
-
-        <div class="Gal">
-           
-            <img src="horse.jpg" class="gallery-img" alt="Basotho horse- the pride of the mountain">
-            <div class="caption">Basotho horse- the pride of the mountain</div>
-        </div>
-
-        <div class="Gal">
-           
-            <img src="lodge.jpg" class="gallery-img" alt="The warm interior of of the Maletsunyane garden lodge">
-            <div class="caption">The warm interior of of the Maletsunyane garden lodge</div>
-        </div>
-    </div>
-
-   
-    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content bg-dark text-white">
-            <div class="modal-header border-0">
-                <h5 class="modal-title">Image Preview</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center position-relative">
-               
-                <button class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y ms-2" id="prevBtn" style="z-index: 1055;">&#10094;</button>
-                
-               
-                <img src="" id="lightboxImg" class="img-fluid rounded" alt="Preview" style="max-height: 70vh;">
-                
-               
-                <button class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y me-2" id="nextBtn" style="z-index: 1055;">&#10095;</button>
-
-                
-                <p id="lightboxCaption" class="mt-3 fs-5 fw-semibold text-center"></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-</main>
-
-
-<script src="https://jsdelivr.net"></script>
-
-
-<script src="main.js"></script>
-
-</body>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery | Semonkong, Lesotho</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark"><div class="wrap d-flex flex-wrap align-items-center justify-content-between w-100">
+<a class="navbar-brand" href="Home.html">Semonkong</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse justify-content-end" id="myNav"><div class="navbar-nav"><a class="nav-link" href="Home.html">Home</a><a class="nav-link" href="About.html">About</a><a class="nav-link" href="services.html">Services</a><a class="nav-link active" href="Gallery.html">Gallery</a><a class="nav-link" href="Contact.html">Contact</a></div></div></div></nav>
+<header class="page-head"><div class="wrap"><h1>Gallery</h1><p>Kingdom in the sky: waterfalls, ponies, rondavels and the people of Semonkong.</p></div></header><section class="sec"><div class="wrap"><div class="grid"><figure class="wide"><img src="summer.jpg" alt="Maletsunyane Falls in summer" loading="lazy"><figcaption>Maletsunyane Falls in summer</figcaption></figure><figure class=""><img src="winter.jpg" alt="Snow at the gorge in winter" loading="lazy"><figcaption>Snow at the gorge in winter</figcaption></figure><figure class="tall"><img src="horse.jpg" alt="Riding to the falls viewpoint" loading="lazy"><figcaption>Riding to the falls viewpoint</figcaption></figure><figure class="tall"><img src="Waterfall.webp" alt="The 192 m drop" loading="lazy"><figcaption>The 192 m drop</figcaption></figure><figure class="wide"><img src="race.jpg" alt="Traditional horse racing" loading="lazy"><figcaption>Traditional horse racing</figcaption></figure><figure class=""><img src="lodge.jpg" alt="Inside a lodge rondavel" loading="lazy"><figcaption>Inside a lodge rondavel</figcaption></figure><figure class=""><img src="images.jpg" alt="A rondavel at sunset" loading="lazy"><figcaption>A rondavel at sunset</figcaption></figure><figure class="wide"><img src="Likhomo.jpg" alt="Cattle on the highland pasture" loading="lazy"><figcaption>Cattle on the highland pasture</figcaption></figure><figure class="tall"><img src="katse.jpg" alt="Katse Dam from above" loading="lazy"><figcaption>Katse Dam from above</figcaption></figure></div></div></section><dialog id="lb"><img id="lbImg" alt=""><p id="lbCap"></p><button id="prev">Previous</button><button id="next">Next</button><button id="close">Close</button></dialog>
+<footer><div class="wrap">Semonkong, Maseru District, Lesotho. Maletsunyane Gardens Lodge: +266 6366 6590 · <a href="mailto:reservations@maletsunyanegardens.co.ls">reservations@maletsunyanegardens.co.ls</a></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="main.js"></script>
+</body></html>

@@ -1,137 +1,27 @@
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-   
-    event.preventDefault();
-
-   
-    let errors = false;
-    document.getElementById('nameError').textContent = '';
-    document.getElementById('emailError').textContent = '';
-    document.getElementById('phoneError').textContent = '';
-    document.getElementById('genderError').textContent = '';
-    document.getElementById('passwordError').textContent = '';
-    document.getElementById('confirmPasswordError').textContent = '';
-    document.getElementById('formSuccess').textContent = '';
-
-    
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const gender = document.getElementById('gender').value;
-    const password = document.getElementById('password').value.trim();
-    const confirmPassword = document.getElementById('confirmPassword').value.trim();
-
-   
-    if (!name || !email || !phone || !gender || !password || !confirmPassword) {
-        alert("Please fill in all required fields.");
-        errors = true;
-    }
-
- 
-    if (name.length < 3) {
-        document.getElementById('nameError').textContent = 'Name must be at least 3 characters long.';
-        errors = true;
-    }
-
-  
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
-        errors = true;
-    }
-
-   
-    const phonePattern = /^\d{10}$/;
-    if (!phonePattern.test(phone)) {
-        document.getElementById('phoneError').textContent = 'Phone number must be exactly 10 digits.';
-        errors = true;
-    }
-
-   
-    if (gender === "") {
-        document.getElementById('genderError').textContent = 'Please select your gender.';
-        errors = true;
-    }
-
-   
-    if (password.length < 6) {
-        document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long.';
-        errors = true;
-    }
-
- 
-    if (password !== confirmPassword) {
-        document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
-        errors = true;
-    }
-
-    
-    if (!errors) {
-        document.getElementById('formSuccess').textContent = 'Registration submitted successfully!';
-        document.getElementById('registrationForm').reset();
-    }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Select all gallery images
-    const images = Array.from(document.querySelectorAll('.gallery-img'));
-    
-    
-    const lightboxModalEl = document.getElementById('lightboxModal');
-    const lightboxModal = new bootstrap.Modal(lightboxModalEl);
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    let currentIndex = 0;
-
-    
-    function updateLightbox(index) {
-        currentIndex = index;
-        const targetImg = images[currentIndex];
-        
-       
-        lightboxImg.src = targetImg.src;
-        lightboxCaption.textContent = targetImg.alt;
-    }
-
-    
-    images.forEach((img, index) => {
-        img.style.cursor = 'pointer'; 
-        img.addEventListener('click', function () {
-            updateLightbox(index);
-            lightboxModal.show(); 
-        });
-    });
-
-   
-    prevBtn.addEventListener('click', function () {
-        let newIndex = currentIndex - 1;
-        if (newIndex < 0) {
-            newIndex = images.length - 1; 
-        }
-        updateLightbox(newIndex);
-    });
-
-    
-    nextBtn.addEventListener('click', function () {
-        let newIndex = currentIndex + 1;
-        if (newIndex >= images.length) {
-            newIndex = 0; 
-        }
-        updateLightbox(newIndex);
-    });
-
-
-    document.addEventListener('keydown', function (e) {
-        if (!lightboxModalEl.classList.contains('show')) return;
-        
-        if (e.key === 'ArrowLeft') {
-            prevBtn.click();
-        } else if (e.key === 'ArrowRight') {
-            nextBtn.click();
-        }
-    });
-});
-
+const $=id=>document.getElementById(id);
+const form=$('registrationForm');
+if(form){
+  const today=new Date().toISOString().split('T')[0];$('checkin').min=today;
+  const rules={
+    name:v=>v.trim().length>=3||'Enter your full name (at least 3 characters).',
+    email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())||'Enter a valid email, like name@example.com.',
+    phone:v=>/^\+?[\d\s]{8,15}$/.test(v.trim())||'Enter 8 to 15 digits, for example +266 5812 3456.',
+    checkin:v=>(v&&v>=today)||'Choose a check-in date from today onward.',
+    message:v=>v.trim().length>=10||'Tell us a little more (at least 10 characters).'
+  };
+  const check=k=>{const r=rules[k]($(k).value);$(k+'Error').textContent=r===true?'':r;return r===true};
+  Object.keys(rules).forEach(k=>$(k).addEventListener('blur',()=>check(k)));
+  form.addEventListener('submit',e=>{
+    e.preventDefault();$('formSuccess').style.display='none';
+    const ok=Object.keys(rules).map(check).every(Boolean);
+    if(ok){$('formSuccess').textContent='Request sent. The lodge will reply to '+$('email').value.trim()+' to confirm your dates.';$('formSuccess').style.display='block';form.reset()}
+  });
+}
+const figs=[...document.querySelectorAll('.grid figure')],dlg=$('lb');
+if(dlg&&figs.length){
+  let i=0;const show=n=>{i=(n+figs.length)%figs.length;const f=figs[i];$('lbImg').src=f.querySelector('img').src;$('lbImg').alt=f.querySelector('img').alt;$('lbCap').textContent=f.querySelector('figcaption').textContent};
+  figs.forEach((f,n)=>f.addEventListener('click',()=>{show(n);dlg.showModal()}));
+  $('prev').onclick=()=>show(i-1);$('next').onclick=()=>show(i+1);$('close').onclick=()=>dlg.close();
+  dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+  document.addEventListener('keydown',e=>{if(!dlg.open)return;if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+}
